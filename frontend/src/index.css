@@ -1,0 +1,979 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /*font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;*/
+}
+body{
+  background-color: black;
+  color: white;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+body::-webkit-scrollbar {
+  display: none; /* Hides scrollbar */
+}
+
+/* Hide scrollbar for Firefox */
+body {
+  scrollbar-width: none; /* Hides scrollbar */
+}
+
+/* Ensure body can scroll */
+body {
+  overflow-y: scroll; /* Allows scrolling */
+}
+
+/* Navbar styles */
+.container {
+  max-width: 1300px; /* Max width for the navbar */
+  margin: auto; /* Center align */
+  padding: 10px 20px; /* Padding for spacing */
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space between items */
+  /*background-color: #1e1e2f; /* Background color */
+  
+}
+
+/* Logo and title container */
+.logoTitle {
+  display: flex; /* Flex for alignment */
+  align-items: center; /* Center logo and title vertically */
+
+}
+.logoTitle:hover {
+cursor: pointer;
+}
+
+.logo {
+  height: 50px; /* Logo height */
+  margin-right: 10px; /* Space between logo and title */
+}
+
+
+/*Pix hub Title near logo */
+.navbar-title {
+  font-size: 35px; /* Larger font size for strong emphasis */
+  font-weight: bold; /* Bold text */
+  color: #ffffff; /* Pure white text */
+  text-transform: uppercase; /* Uppercase for a sleek appearance */
+  letter-spacing: 3px; /* Extra spacing for better readability */
+  text-align: center;
+  position: relative;
+  margin: 20px 0;
+  cursor: pointer;
+  display: inline-block;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar-title:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+  text-shadow: 0 0 13px rgba(255, 255, 255, 1), 0 0 23px #f59e0b, 0 0 32px #fbbf24; /* Add a glowing effect on hover */
+}
+
+.navbar-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px; /* Position the underline slightly below the text */
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24, #fde047); /* Gradient underline */
+  border-radius: 3px;
+  transform: scaleX(0); /* Initially hidden */
+  transform-origin: right; /* Animate from the right */
+  transition: transform 0.4s ease-in-out; /* Smooth animation */
+}
+
+.navbar-title:hover::after {
+  transform: scaleX(1); /* Fully visible on hover */
+  transform-origin: left; /* Animate from the left */
+}
+
+.navbar-title:active {
+  transform: scale(0.95); /* Slight shrink effect on click */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px #f59e0b; /* Dim glow on click */
+}
+
+/* Search container */
+.search-container {
+  flex: 1; /* Allow input to take available space */
+  position: relative; /* For positioning inner elements */
+  margin: 0 20px; /* Space around the input */
+  
+}
+
+/* Placeholder color */
+.input-white-placeholder::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Input field styles */
+.form-control {
+  background-color: #2c2c3e; /* Dark background */
+  color: #fff; /* Text color */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px; /* Rounded corners */
+  padding: 10px; /* Inner padding for input */
+  width: 100%; /* Full width */
+  
+}
+
+.form-control:focus {
+  border-color: #007bff; /* Focus border color */
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Focus shadow */
+}
+@media screen and (min-width:759px) and (max-width:992px){
+
+
+/* Input field styles */
+.form-control {
+  background-color: #2c2c3e; /* Dark background */
+  color: #fff; /* Text color */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px; /* Rounded corners */
+  padding: 10px 15px; /* Inner padding for input */
+  width: 100%; /* Full width */
+  margin-left: 5px;
+  margin-right: 5px;
+}
+  
+}
+
+/*Collections Button style */
+
+.Collections {
+  display: inline-block;
+  padding: 10px 16px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333; /* Darker text for contrast */
+  
+  background: linear-gradient(45deg, #fcd34d, #f59e0b); /* Yellow gradient */
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(255, 223, 88, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.Collections:hover {
+  transform: scale(1.05); /* Slight enlargement */
+  background: linear-gradient(45deg, #fde047, #fbbf24); /* Brighter yellow on hover */
+  box-shadow: 0 5px 12px rgba(255, 223, 88, 0.6);
+}
+
+.Collections:active {
+  transform: scale(0.95); /* Slight shrink for click effect */
+  background: linear-gradient(45deg, #facc15, #f59e0b); /* Slightly darker yellow */
+  box-shadow: 0 4px 8px rgba(255, 223, 88, 0.4);
+}
+
+/* Button styles */
+
+.button {
+  cursor: pointer; /* Pointer cursor on hover */
+  padding: 10px 15px; /* Button padding */
+  border-radius: 10px; /* Rounded corners */
+  margin-left: 10px; /* Space between buttons */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .navbar-title {
+    font-size: 1.6rem; /* Slightly smaller title on large screens */
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar-title {
+    font-size: 1.4rem; /* Smaller title on medium screens */
+  }
+
+  .search-container {
+    margin: 10px 0; /* Margin for smaller screens */
+    width: 100%; /* Full width */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to start */
+  }
+
+  .navbar-title {
+    font-size: 1.5rem; /* Smaller font size for mobile */
+  }
+
+  .button {
+    width: 100%; /* Full width for buttons */
+    margin: 5px 0; /* Margin between buttons */
+  }
+}
+
+/* Scrollable nav */
+.nav {
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.overflow-auto {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding: 10px 5px; /* Padding for spacing */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.overflow-auto::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
+}
+
+.button {
+  display: inline-block; /* Ensure buttons are inline */
+}
+
+/*Upload Button*/
+
+#UploadBtn {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  background-color: #007BFF; /* A soft blue color that suits most backgrounds */
+  border: none;
+  border-radius: 10px; /* Slightly rounded corners for a smoother appearance */
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+#UploadBtn:before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, #00c6ff, #007BFF, #00c6ff);
+  animation: glowAnimation 2s linear infinite;
+  opacity: 0.25;
+  border-radius: 50%;
+}
+
+#UploadBtn:hover {
+  background-color: #0056b3; /* Darker blue when hovered for more emphasis */
+  transform: translateY(-4px); /* Button lifts on hover */
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.6);
+}
+
+#UploadBtn:active {
+  background-color: #004085; /* Even darker blue on click */
+  transform: translateY(2px); /* Button pressed effect */
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+#UploadBtn i {
+  margin-right: 10px; /* Space between icon and text */
+}
+
+@keyframes glowAnimation {
+  0% {
+    top: -100%;
+    left: -100%;
+    opacity: 0.2;
+  }
+  50% {
+    top: 50%;
+    left: 50%;
+    opacity: 0.4;
+  }
+  100% {
+    top: 100%;
+    left: 100%;
+    opacity: 0.2;
+  }
+}
+
+/* General styles for Home.jsx */
+
+/*Image and video structure style*/
+.homeDiv {
+  padding-left: auto;
+  padding-right: auto;
+}
+
+@media screen and (max-width: 900px) {
+  .homeDiv {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .homeDiv {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+
+.image-gallery {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
+  transform: translateX(-15px);
+}
+
+.image-gallery .images {
+  columns: 5 340px;
+  max-width: 95%;
+  margin-top: 20px;
+}
+
+@media (min-width: 1064px) and (max-width: 1165px) {
+  .image-gallery .images {
+    columns: 5 300px;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 800px) and (max-width: 1063px) {
+
+  .image-gallery .images {
+    columns: 5 240px;
+    max-width: 100%;
+  }
+}
+
+
+@media (min-width: 580px) and (max-width: 799px) {
+
+  .image-gallery .images {
+    columns: 5 200px;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .image-gallery .images {
+    columns: 5 200px;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 476px) {
+  .image-gallery .images {
+    columns: 5 150px;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .image-gallery .images {
+    columns: 5 130px;
+    max-width: 100%;
+  }
+}
+
+/* Image container and hover effect */
+.image {
+  overflow: hidden;
+  margin-bottom: 15px;
+  list-style: none;
+  position: relative;
+  cursor: pointer;
+  /*border: 2px solid white;*/
+}
+
+.photoVideo {
+  width: 100%;
+  transition: all 0.5s;
+}
+
+.photoVideo:hover {
+  scale: 110%;
+}
+
+/*Video Automatically play css*/
+.video-container {
+  position: relative;
+  
+}
+
+.play-icon {
+
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 18px;
+  color: white;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  z-index: 2; /* Ensure the icon is above the video */
+  
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  
+  padding: 4px 8px;
+  border-radius: 50%;
+}
+
+.video-container:hover .play-icon {
+  opacity: 1; /* Show the icon on hover */
+}
+
+@media screen and (max-width:800px) {
+  .play-icon{
+    font-size: 14px;
+  }
+  
+}
+
+/* Download and collect button container */
+.items {
+  position: relative;
+  display: inline-block;
+}
+
+.button-container {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  display: none; /* Hidden by default */
+}
+
+.download-collect {
+/*  background-color: #FFC300;*/
+  
+  background: linear-gradient(45deg, #facc15, #f59e0b); /* Slightly darker yellow */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 20px;
+  /*margin-right: 10px;*/
+  margin-bottom: 5px;
+  align-items: center;
+}
+
+.download-button {
+/*  background-color: #FFC300;       */
+
+background: linear-gradient(45deg, #facc15, #f59e0b); /* Slightly darker yellow */  
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  align-items: center;
+}
+
+.image:hover .button-container {
+  display: block; /* Show the button on hover */
+}
+
+/* Adjust button styles and icon sizes based on screen size */
+@media screen and (max-width: 1030px) {
+  .button-container {
+    display: block; /* Show the buttons regardless of hover on smaller screens */
+  }
+}
+@media screen and (min-width:841px) and (max-width:1030px){
+  .download-collect,
+  .download-button {
+    font-size: 16px; /* Hide text by reducing font size */
+    padding: 5px; /* Adjust padding for smaller buttons */
+  }
+
+}
+
+@media screen and (max-width: 840px) {
+  /* Remove the text from the buttons, keep the icons */
+  .download-collect,
+  .download-button {
+    font-size: 0; /* Hide text by reducing font size */
+    padding: 5px; /* Adjust padding for smaller buttons */
+  }
+
+  .download-collect i,
+  .download-button i {
+    font-size: 18px; /* Icon size for screens under 810px */
+    margin-right: 0;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+
+  .button-container {
+  
+    position: absolute;
+    bottom: 6px;
+    right: 8px;
+  }
+
+  .download-collect{
+    display: none;
+  }
+  .download-button{
+    border-radius: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent yellow */
+    padding: 5px 8px; /* Adjust padding */
+  }
+
+
+  .download-button i {
+    font-size: 16px; /* Icon size for screens under 600px */
+    
+  }
+ 
+}
+
+
+@media screen and (max-width: 480px) {
+ 
+  .download-button i {
+    font-size: 14px; /* Icon size for screens under 480px */
+  }
+}
+
+@media screen and (max-width: 360px) {
+  
+  .download-button i {
+    font-size: 12px; /* Icon size for screens under 360px */
+  }
+}
+
+
+
+
+
+/*back  to top button bottom button */
+
+.animated-button {
+  display: inline-block;
+  padding: 10px 16px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333; /* Darker text for contrast */
+  
+  background: linear-gradient(45deg, #fcd34d, #f59e0b); /* Yellow gradient */
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(255, 223, 88, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.animated-button:hover {
+  transform: scale(1.05); /* Slight enlargement */
+  background: linear-gradient(45deg, #fde047, #fbbf24); /* Brighter yellow on hover */
+  box-shadow: 0 5px 12px rgba(255, 223, 88, 0.6);
+}
+
+.animated-button:active {
+  transform: scale(0.95); /* Slight shrink for click effect */
+  background: linear-gradient(45deg, #facc15, #f59e0b); /* Slightly darker yellow */
+  box-shadow: 0 4px 8px rgba(255, 223, 88, 0.4);
+}
+/*
+.animated-button {
+  background-color: #FFD700; 
+  color: black;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden; 
+  transition: transform 0.3s, box-shadow 0.3s; 
+}
+
+.animated-button:hover {
+  background-color: #FFC300; 
+  transform: translateY(-3px); 
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); 
+}
+*/
+
+/* For Loader or spinner (Loader.jsx)*/
+
+.imgLoader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgLoader img{
+  width: 500px;
+}
+/*Home style end */
+
+
+
+
+/* Modal.jsx style CSS */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s;
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column; /* Use column layout for stacking */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-image,
+.modal-video {
+  width: 100%; /* Ensure image/video width is responsive */
+  max-height: calc(100% - 40px); /* Adjust height to account for margins */
+  object-fit: contain; /* Maintain aspect ratio for images */
+  margin: 25px 0px 0px 0px; /* Add margin from the top and bottom */
+}
+
+.back-button {
+  position: absolute;
+  top: 10px; /* Slightly adjusted for better visibility */
+  left: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: transform 0.2s;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
+}
+
+.button-container-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.download-button-modal {
+  background: linear-gradient(45deg, #facc15, #f59e0b); /* Slightly darker yellow */  
+  
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.download-button-modal:hover {
+
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 840px) {
+  .modal-content {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    padding:10px;
+    max-width: 500px;
+    width: 90%;
+    height: 40vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Use column layout for stacking */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .back-button {
+    position: absolute;
+    top: 5px; /* Slightly adjusted for better visibility */
+    left: 10px;
+    font-size: 1.5rem; /* Adjust button size for smaller screens */
+  }
+
+  .download-button-modal {
+    font-size: 1rem; /* Adjust font size for smaller buttons */
+    padding: 3px 8px; /* Adjust padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    padding:10px;
+    max-width: 500px;
+    width: 90%;
+    height: 40vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Use column layout for stacking */
+    justify-content: center;
+    align-items: center;
+  }
+  .back-button {
+    font-size: 1.2rem; /* Adjust button size further for small screens */
+  }
+
+  .download-button-modal {
+    font-size: 0.9rem; /* Smaller font size for buttons */
+    padding: 4px 8px; /* Adjust padding for small buttons */
+  }
+}
+ /* Modal.jsx style css end*/
+
+
+/*Upload.jsx style css*/
+
+
+/* General styles */
+
+
+.upload-page {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/*
+#uploadHeading {
+  text-align: center;
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}*/
+#uploadHeading {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #4CAF50;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #FF6347, #FFD700, #32CD32, #1E90FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientSlide 6s infinite linear;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 10px;
+}
+
+@keyframes gradientSlide {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 1.1em;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="file"] {
+  padding: 5px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+/*
+#uploadButton {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1em;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+*/
+#uploadButton {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #FF5733, #FFC300, #DAF7A6, #33FF57, #3380FF, #A633FF);
+  background-size: 400% 400%;
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+#uploadButton:hover {
+  background-position: 100% 0;
+  transform: scale(1.04);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.2);
+}
+
+#uploadButton:active {
+  transform: scale(0.95);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.success, .error {
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.success {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.error {
+  background-color: #f44336;
+  color: white;
+}
+
+#media-type {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #4CAF50;
+  background: #f9f9f9;
+  border: 2px solid #4CAF50;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  appearance: none; /* Hides the default dropdown arrow */
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%234CAF50'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+  background-size: 30px;
+  transition: all 0.3s ease;
+}
+
+#media-type:hover {
+  border-color: #2e7d32;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+#media-type:focus {
+  outline: none;
+  border-color: #2e7d32;
+  box-shadow: 0 0 10px rgba(46, 125, 50, 0.4);
+}
+
+
+
+/* Responsive styles for mobile and tablet devices */
+@media (max-width: 768px) {
+  .upload-page {
+    margin: 20px;
+    padding: 15px;
+  }
+
+  #uploadHeading {
+    font-size: 1.3em;
+  }
+
+  input, select, textarea {
+    font-size: 0.9em;
+  }
+
+  #uploadButton {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-page {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  uploadHeading {
+    font-size: 1.2em;
+  }
+
+  input, select, textarea {
+    font-size: 0.85em;
+  }
+
+  #uploadButton {
+    font-size: 0.95em;
+  }
+}
+
+.file-name {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #555;
+  font-style: italic;
+}
+
+
+/*Testing purpose for button*/
